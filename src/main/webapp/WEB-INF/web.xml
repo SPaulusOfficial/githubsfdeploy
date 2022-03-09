@@ -7,6 +7,10 @@
     <display-name>Spring-Hibernate-Template</display-name>
 
     <filter>
+      <filter-name>HttpsEnforcer</filter-name>
+      <filter-class>com.andyinthecloud.githubsfdeploy.config.HttpsEnforcer</filter-class>
+    </filter>
+    <filter>
       <filter-name>OAuthConfigChecker</filter-name>
       <filter-class>com.andyinthecloud.githubsfdeploy.config.OAuthConfigChecker</filter-class>
     </filter>
