@@ -1,3 +1,11 @@
+
+   
+package com.andyinthecloud.githubsfdeploy.config;
+
+import javax.servlet.*;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
 public class HttpsEnforcer implements Filter {
   public static final String X_FORWARDED_PROTO = "X-Forwarded-Proto";
 
