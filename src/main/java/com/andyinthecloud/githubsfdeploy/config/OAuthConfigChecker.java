@@ -5,6 +5,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class OAuthConfigChecker implements Filter {
+    public static final String X_FORWARDED_PROTO = "X-Forwarded-Proto";
+    
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {}
 
@@ -12,13 +14,18 @@ public class OAuthConfigChecker implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         //If the environment variables are not set, send them to a "error" page that will tell them to add this to 
     	//their environment
-     /*   if (request.getHeader(X_FORWARDED_PROTO) != null) {
+        
+        HttpServletRequest request = (HttpServletRequest) servletRequest;
+        HttpServletResponse response = (HttpServletResponse) servletResponse;
+
+        
+     if (request.getHeader(X_FORWARDED_PROTO) != null) {
       if (request.getHeader(X_FORWARDED_PROTO).indexOf("https") != 0) {
         String pathInfo = (request.getPathInfo() != null) ? request.getPathInfo() : "";
         response.sendRedirect("https://" + request.getServerName() + pathInfo);
         return;
       }
-    }*/
+    }
 
         
     	if (System.getenv("SFDC_OAUTH_CLIENT_ID") == null || System.getenv("SFDC_OAUTH_CLIENT_SECRET") == null) {
