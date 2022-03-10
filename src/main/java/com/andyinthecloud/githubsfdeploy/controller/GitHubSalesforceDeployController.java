@@ -138,7 +138,7 @@ public class GitHubSalesforceDeployController {
 		TokenResult tokenResult = (TokenResult) mapper.readValue(gitHubResponse.toString(), TokenResult.class);
 		session.setAttribute(GITHUB_TOKEN, tokenResult.access_token);
 		String redirectUrl = state;
-		System.out.println('authorize:'+redirectUrl);
+		System.out.println("authorize:"+redirectUrl);
 
 		return "redirect:" + redirectUrl;
 	}
